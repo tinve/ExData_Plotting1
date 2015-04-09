@@ -12,12 +12,13 @@ data <- subset(data, Date == '1/2/2007' | Date == '2/2/2007')
 data$Date_time <- paste(data$Date, data$Time, sep = ' ')
 data$Date_time <- strptime(data$Date_time, format = '%d/%m/%Y %H:%M:%S')
 
+# launch graphic device
+png(filename = 'plot2.png')
+
 # make the plot
 plot(data$Date_time, data$Global_active_power,
      type='l',
      xlab = '',
      ylab = 'Global Active Power (kilowatts)')
 
-# save the plot to PNG file
-dev.copy(png, file = 'plot2.png')
 dev.off()

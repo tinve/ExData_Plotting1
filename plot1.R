@@ -8,6 +8,9 @@ data <- read.csv('household_power_consumption.txt',
 # keep only data from 1/2/2007 and 2/2/2007
 data <- subset(data, Date == '1/2/2007' | Date == '2/2/2007')
 
+# launch graphic device
+png(filename = 'plot1.png')
+
 # make a plot
 hist(data$Global_active_power,
      col = 'red',
@@ -15,6 +18,4 @@ hist(data$Global_active_power,
      breaks = 12,
      main = 'Global Active Power')
 
-# save the plot to PNG file
-dev.copy(png, file = 'plot1.png')
 dev.off()

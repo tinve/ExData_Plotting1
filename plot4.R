@@ -12,6 +12,9 @@ data <- subset(data, Date == '1/2/2007' | Date == '2/2/2007')
 data$Date_time <- paste(data$Date, data$Time, sep = ' ')
 data$Date_time <- strptime(data$Date_time, format = '%d/%m/%Y %H:%M:%S')
 
+# launch graphic device
+png(filename = 'plot4.png')
+
 par(mfcol = c(2, 2))
 
 # make plot 1
@@ -46,6 +49,4 @@ plot(data$Date_time, data$Global_reactive_power,
      xlab = 'datetime',
      ylab = 'Global_reactive_power')
 
-# save the plot to PNG file
-dev.copy(png, file = 'plot4.png')
 dev.off()
